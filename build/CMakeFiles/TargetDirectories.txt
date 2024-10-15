@@ -1,0 +1,3 @@
+/workspaces/C-/build/CMakeFiles/rebuild_cache.dir
+/workspaces/C-/build/CMakeFiles/edit_cache.dir
+/workspaces/C-/build/CMakeFiles/testrect.dir
