@@ -1,19 +1,29 @@
 #pragma once
+#include "shape.hpp"
+#include <cmath>
 
-class Rectangle
-{
-private:
-    double x, y, width, height;
-
+class Rectangle : public Shape {
 public:
-    Rectangle(double x, double y, double width, double height);
-    Rectangle(double width, double height);
+    Rectangle(double x, double y, double width, double height) 
+        : Shape(x, y), width(width), height(height) {}
 
-    double getX() const;
-    double getY() const;
-    double getWidth() const;
-    double getHeight() const;   // Ensure this is declared
+    Rectangle(double width, double height) 
+        : Rectangle(0, 0, width, height) {}
 
-    double perimeter() const;
-    double area() const;
+    double getWidth() const { return width; }
+    double getHeight() const { return height; }
+
+    double perimeter() const { return 2 * (width + height); }
+    double area() const { return width * height; }
+
+    // Overriding the draw method from Shape
+    void draw() const override {
+        std::cout << "Drawing Rectangle(x=" << getX() 
+                  << ", y=" << getY() 
+                  << ", width=" << width 
+                  << ", height=" << height << ")" << std::endl;
+    }
+
+private:
+    double width, height;
 };
